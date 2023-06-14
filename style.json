@@ -133,6 +133,36 @@
       }
     },
     {
+      "id": "sidewalk-line",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["==", "subclass", "footway"],
+        ["==", "$type", "LineString"]
+      ],
+      "layout": {"line-cap": "round", "line-join": "miter"},
+      "paint": {
+        "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
+        "line-color": "rgba(155, 155, 155, 1)"
+      }
+    },
+    {
+      "id": "sidewalk-poly",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["==", "subclass", "footway"],
+        ["==", "$type", "Polygon"]
+      ],
+      "paint": {"fill-color": "rgba(155, 155, 155, 1)"}
+    },
+    {
       "id": "waterway-tunnel",
       "type": "line",
       "source": "openmaptiles",
@@ -225,6 +255,27 @@
       }
     },
     {
+      "id": "sidewalk-line-tunnel",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["==", "subclass", "footway"],
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "tunnel"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter"
+      },
+      "paint": {
+        "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
+        "line-color": "rgba(155, 155, 155, 0.5)"
+      }
+    },
+    {
       "id": "housenumber",
       "type": "symbol",
       "source": "openmaptiles",
@@ -284,7 +335,11 @@
         ["==", "$type", "LineString"],
         ["in", "class", "path", "track"]
       ],
-      "layout": {"line-cap": "square", "line-join": "bevel"},
+      "layout": {
+        "line-cap": "square",
+        "line-join": "bevel",
+        "visibility": "none"
+      },
       "paint": {
         "line-color": "hsl(0, 0%, 97%)",
         "line-dasharray": [1, 1],
@@ -811,5 +866,5 @@
       }
     }
   ],
-  "id": "basic"
+  "id": "35rhdbqzv"
 }
