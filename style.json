@@ -34,7 +34,7 @@
         ["in", "class", "residential", "suburb", "neighbourhood"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "hsl(47, 13%, 86%)", "fill-opacity": 0.7}
+      "paint": {"fill-color": "rgba(223, 220, 208, 1)", "fill-opacity": 0.7}
     },
     {
       "id": "landcover_grass",
@@ -140,13 +140,13 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["==", "subclass", "footway"],
+        ["in", "subclass", "footway", "pedestrian", "steps"],
         ["==", "$type", "LineString"]
       ],
-      "layout": {"line-cap": "round", "line-join": "miter"},
+      "layout": {"line-cap": "butt", "line-join": "miter"},
       "paint": {
         "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
-        "line-color": "rgba(155, 155, 155, 1)"
+        "line-color": "rgba(227, 227, 227, 1)"
       }
     },
     {
@@ -157,10 +157,29 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["==", "subclass", "footway"],
+        ["in", "subclass", "footway", "pedestrian"],
         ["==", "$type", "Polygon"]
       ],
-      "paint": {"fill-color": "rgba(155, 155, 155, 1)"}
+      "paint": {"fill-color": "rgba(227, 227, 227, 1)"}
+    },
+    {
+      "id": "sidewalk-line-steps",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["in", "subclass", "steps"],
+        ["==", "$type", "LineString"]
+      ],
+      "layout": {"line-cap": "butt", "line-join": "miter"},
+      "paint": {
+        "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
+        "line-color": "rgba(168, 168, 168, 1)",
+        "line-dasharray": {"stops": [[16, [0.3, 0.3]], [19, [0.1, 0.1]]]},
+        "line-opacity": {"stops": [[15, 0], [16, 1]]}
+      }
     },
     {
       "id": "waterway-tunnel",
@@ -262,17 +281,34 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["==", "subclass", "footway"],
+        ["in", "subclass", "footway", "pedestrian", "steps"],
         ["==", "$type", "LineString"],
         ["==", "brunnel", "tunnel"]
       ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "miter"
-      },
+      "layout": {"line-cap": "butt", "line-join": "miter"},
       "paint": {
         "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
-        "line-color": "rgba(155, 155, 155, 0.5)"
+        "line-color": "rgba(227, 227, 227, 0.5)"
+      }
+    },
+    {
+      "id": "sidewalk-line-tunnel-steps",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["in", "subclass", "steps"],
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "tunnel"]
+      ],
+      "layout": {"line-cap": "butt", "line-join": "miter"},
+      "paint": {
+        "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
+        "line-color": "rgba(168, 168, 168, 1)",
+        "line-dasharray": {"stops": [[16, [0.3, 0.3]], [19, [0.1, 0.1]]]},
+        "line-opacity": {"stops": [[15, 0], [16, 1]]}
       }
     },
     {
