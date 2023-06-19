@@ -48,7 +48,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "hsl(47, 13%, 86%)",
+        "fill-color": "rgba(223, 220, 208, 1)",
         "fill-opacity": 0.7
       }
     },
@@ -275,9 +275,11 @@
           "path"
         ],
         [
-          "==",
+          "in",
           "subclass",
-          "footway"
+          "footway",
+          "pedestrian",
+          "steps"
         ],
         [
           "==",
@@ -286,7 +288,7 @@
         ]
       ],
       "layout": {
-        "line-cap": "round",
+        "line-cap": "butt",
         "line-join": "miter"
       },
       "paint": {
@@ -306,7 +308,7 @@
             ]
           ]
         },
-        "line-color": "rgba(155, 155, 155, 1)"
+        "line-color": "rgba(227, 227, 227, 1)"
       }
     },
     {
@@ -322,9 +324,10 @@
           "path"
         ],
         [
-          "==",
+          "in",
           "subclass",
-          "footway"
+          "footway",
+          "pedestrian"
         ],
         [
           "==",
@@ -333,7 +336,84 @@
         ]
       ],
       "paint": {
-        "fill-color": "rgba(155, 155, 155, 1)"
+        "fill-color": "rgba(227, 227, 227, 1)"
+      }
+    },
+    {
+      "id": "sidewalk-line-steps",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "steps"
+        ],
+        [
+          "==",
+          "$type",
+          "LineString"
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter"
+      },
+      "paint": {
+        "line-width": {
+          "stops": [
+            [
+              16,
+              8
+            ],
+            [
+              17,
+              20
+            ],
+            [
+              19,
+              60
+            ]
+          ]
+        },
+        "line-color": "rgba(168, 168, 168, 1)",
+        "line-dasharray": {
+          "stops": [
+            [
+              16,
+              [
+                0.3,
+                0.3
+              ]
+            ],
+            [
+              19,
+              [
+                0.1,
+                0.1
+              ]
+            ]
+          ]
+        },
+        "line-opacity": {
+          "stops": [
+            [
+              15,
+              0
+            ],
+            [
+              16,
+              1
+            ]
+          ]
+        }
       }
     },
     {
@@ -582,9 +662,11 @@
           "path"
         ],
         [
-          "==",
+          "in",
           "subclass",
-          "footway"
+          "footway",
+          "pedestrian",
+          "steps"
         ],
         [
           "==",
@@ -598,7 +680,7 @@
         ]
       ],
       "layout": {
-        "line-cap": "round",
+        "line-cap": "butt",
         "line-join": "miter"
       },
       "paint": {
@@ -618,7 +700,89 @@
             ]
           ]
         },
-        "line-color": "rgba(155, 155, 155, 0.5)"
+        "line-color": "rgba(227, 227, 227, 0.5)"
+      }
+    },
+    {
+      "id": "sidewalk-line-tunnel-steps",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "steps"
+        ],
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "==",
+          "brunnel",
+          "tunnel"
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter"
+      },
+      "paint": {
+        "line-width": {
+          "stops": [
+            [
+              16,
+              8
+            ],
+            [
+              17,
+              20
+            ],
+            [
+              19,
+              60
+            ]
+          ]
+        },
+        "line-color": "rgba(168, 168, 168, 1)",
+        "line-dasharray": {
+          "stops": [
+            [
+              16,
+              [
+                0.3,
+                0.3
+              ]
+            ],
+            [
+              19,
+              [
+                0.1,
+                0.1
+              ]
+            ]
+          ]
+        },
+        "line-opacity": {
+          "stops": [
+            [
+              15,
+              0
+            ],
+            [
+              16,
+              1
+            ]
+          ]
+        }
       }
     },
     {
