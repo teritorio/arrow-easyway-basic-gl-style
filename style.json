@@ -146,6 +146,19 @@
       "paint": {"fill-color": "rgba(229, 197, 163, 1)", "fill-antialias": true}
     },
     {
+      "id": "landuse_cemetery",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        ["in", "class", "cemetery"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(216, 235, 179, 1)", "fill-antialias": true}
+    },
+    {
       "id": "road_path_path",
       "type": "line",
       "source": "openmaptiles",
