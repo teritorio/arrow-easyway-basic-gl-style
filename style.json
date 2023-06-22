@@ -141,7 +141,8 @@
         "all",
         ["==", "class", "path"],
         ["in", "subclass", "footway", "pedestrian", "steps"],
-        ["==", "$type", "LineString"]
+        ["==", "$type", "LineString"],
+        ["none", ["<=", "layer", 0]]
       ],
       "layout": {"line-cap": "butt", "line-join": "miter"},
       "paint": {
@@ -159,7 +160,8 @@
         "all",
         ["==", "class", "path"],
         ["in", "subclass", "footway", "pedestrian"],
-        ["==", "$type", "Polygon"]
+        ["==", "$type", "Polygon"],
+        ["none", ["<=", "layer", 0]]
       ],
       "paint": {"fill-color": "rgba(242, 245, 248, 1)"}
     },
@@ -172,7 +174,8 @@
         "all",
         ["==", "class", "path"],
         ["in", "subclass", "steps"],
-        ["==", "$type", "LineString"]
+        ["==", "$type", "LineString"],
+        ["none", ["<=", "layer", 0]]
       ],
       "layout": {"line-cap": "butt", "line-join": "miter"},
       "paint": {
@@ -284,12 +287,13 @@
         ["==", "class", "path"],
         ["in", "subclass", "footway", "pedestrian", "steps"],
         ["==", "$type", "LineString"],
-        ["==", "brunnel", "tunnel"]
+        ["==", "brunnel", "tunnel"],
+        ["none", ["<=", "layer", 0]]
       ],
       "layout": {"line-cap": "butt", "line-join": "miter"},
       "paint": {
         "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
-        "line-color": "rgba(227, 227, 227, 0.5)"
+        "line-color": "rgba(242, 245, 248, 0.5)"
       }
     },
     {
@@ -302,7 +306,8 @@
         ["==", "class", "path"],
         ["in", "subclass", "steps"],
         ["==", "$type", "LineString"],
-        ["==", "brunnel", "tunnel"]
+        ["==", "brunnel", "tunnel"],
+        ["none", ["<=", "layer", 0]]
       ],
       "layout": {"line-cap": "butt", "line-join": "miter"},
       "paint": {
