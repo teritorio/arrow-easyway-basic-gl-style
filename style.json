@@ -133,6 +133,28 @@
       }
     },
     {
+      "id": "road_path_path",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "path"],
+        ["==", "subclass", "path"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(242, 245, 248, 1)",
+        "line-width": {"stops": [[13, 1], [16, 4], [17, 10], [19, 30]]},
+        "line-dasharray": [1, 1]
+      }
+    },
+    {
       "id": "sidewalk-line",
       "type": "line",
       "source": "openmaptiles",
