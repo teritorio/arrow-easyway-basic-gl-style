@@ -145,8 +145,9 @@
       ],
       "layout": {"line-cap": "butt", "line-join": "miter"},
       "paint": {
-        "line-width": {"stops": [[16, 8], [17, 20], [19, 60]]},
-        "line-color": "rgba(242, 245, 248, 1)"
+        "line-width": {"stops": [[13, 2], [16, 8], [17, 20], [19, 60]]},
+        "line-color": "rgba(242, 245, 248, 1)",
+        "line-opacity": {"stops": [[13, 0.2], [15, 1]]}
       }
     },
     {
