@@ -263,6 +263,89 @@
       }
     },
     {
+      "id": "landuse_track_pitch",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          "in",
+          "class",
+          "track",
+          "pitch"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(229, 197, 163, 1)",
+        "fill-antialias": true
+      }
+    },
+    {
+      "id": "road_path_path",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "class",
+          "path"
+        ],
+        [
+          "==",
+          "subclass",
+          "path"
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(242, 245, 248, 1)",
+        "line-width": {
+          "stops": [
+            [
+              13,
+              1
+            ],
+            [
+              16,
+              4
+            ],
+            [
+              17,
+              10
+            ],
+            [
+              19,
+              30
+            ]
+          ]
+        },
+        "line-dasharray": [
+          1,
+          1
+        ]
+      }
+    },
+    {
       "id": "sidewalk-line",
       "type": "line",
       "source": "openmaptiles",
@@ -279,6 +362,7 @@
           "subclass",
           "footway",
           "pedestrian",
+          "platform",
           "steps"
         ],
         [
@@ -351,7 +435,8 @@
           "in",
           "subclass",
           "footway",
-          "pedestrian"
+          "pedestrian",
+          "platform"
         ],
         [
           "==",
@@ -369,6 +454,41 @@
       ],
       "paint": {
         "fill-color": "rgba(242, 245, 248, 1)"
+      }
+    },
+    {
+      "id": "sidewalk-platform",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "platform"
+        ],
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          "none",
+          [
+            "<=",
+            "layer",
+            0
+          ]
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(255, 255, 227, 1)"
       }
     },
     {
@@ -451,6 +571,53 @@
             [
               16,
               1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "road_cycleway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation_bicycle",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "facility",
+          "cycleway"
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(137, 191, 255, 1)",
+        "line-width": {
+          "stops": [
+            [
+              13,
+              0
+            ],
+            [
+              16,
+              2
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              19,
+              15
             ]
           ]
         }
@@ -1436,9 +1603,20 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "filter": [
-        "==",
-        "class",
-        "rail"
+        "all",
+        [
+          "==",
+          "class",
+          "rail"
+        ],
+        [
+          "none",
+          [
+            "<=",
+            "layer",
+            0
+          ]
+        ]
       ],
       "layout": {
         "visibility": "visible"
@@ -1546,6 +1724,164 @@
             [
               20,
               30
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "sidewalk-line-bridge-casing",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "footway",
+          "pedestrian",
+          "platform",
+          "steps"
+        ],
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "==",
+          "brunnel",
+          "bridge"
+        ],
+        [
+          "none",
+          [
+            "<=",
+            "layer",
+            0
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter"
+      },
+      "paint": {
+        "line-width": {
+          "stops": [
+            [
+              13,
+              4
+            ],
+            [
+              16,
+              12
+            ],
+            [
+              17,
+              28
+            ],
+            [
+              19,
+              78
+            ]
+          ]
+        },
+        "line-color": "rgba(168, 168, 168, 1)",
+        "line-opacity": {
+          "stops": [
+            [
+              13,
+              0.2
+            ],
+            [
+              15,
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "sidewalk-line-bridge",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "footway",
+          "pedestrian",
+          "platform",
+          "steps"
+        ],
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "==",
+          "brunnel",
+          "bridge"
+        ],
+        [
+          "none",
+          [
+            "<=",
+            "layer",
+            0
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter"
+      },
+      "paint": {
+        "line-width": {
+          "stops": [
+            [
+              13,
+              2
+            ],
+            [
+              16,
+              8
+            ],
+            [
+              17,
+              20
+            ],
+            [
+              19,
+              60
+            ]
+          ]
+        },
+        "line-color": "rgba(242, 245, 248, 1)",
+        "line-opacity": {
+          "stops": [
+            [
+              13,
+              0.2
+            ],
+            [
+              15,
+              1
             ]
           ]
         }
@@ -1870,6 +2206,39 @@
       }
     },
     {
+      "id": "tree",
+      "type": "circle",
+      "source": "openmaptiles",
+      "source-layer": "tree",
+      "paint": {
+        "circle-color": "rgba(112, 191, 102, 1)",
+        "circle-opacity": {
+          "stops": [
+            [
+              15,
+              0.1
+            ],
+            [
+              21,
+              0.7
+            ]
+          ]
+        },
+        "circle-radius": {
+          "stops": [
+            [
+              15,
+              2
+            ],
+            [
+              18,
+              8
+            ]
+          ]
+        }
+      }
+    },
+    {
       "id": "poi_label",
       "type": "symbol",
       "source": "openmaptiles",
@@ -1908,6 +2277,47 @@
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255,255,255,0.75)",
         "text-halo-width": 1
+      }
+    },
+    {
+      "id": "building-name",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "lodging"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name:latin} {name:nonlatin}",
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "text-rotation-alignment": "map",
+        "text-size": {
+          "base": 1.4,
+          "stops": [
+            [
+              15,
+              8
+            ],
+            [
+              19,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 5
+      },
+      "paint": {
+        "text-color": "#000",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 2
       }
     },
     {
