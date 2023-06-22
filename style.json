@@ -162,7 +162,7 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["in", "subclass", "footway", "pedestrian", "steps"],
+        ["in", "subclass", "footway", "pedestrian", "platform", "steps"],
         ["==", "$type", "LineString"],
         ["none", ["<=", "layer", 0]]
       ],
@@ -181,11 +181,25 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["in", "subclass", "footway", "pedestrian"],
+        ["in", "subclass", "footway", "pedestrian", "platform"],
         ["==", "$type", "Polygon"],
         ["none", ["<=", "layer", 0]]
       ],
       "paint": {"fill-color": "rgba(242, 245, 248, 1)"}
+    },
+    {
+      "id": "sidewalk-platform",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["in", "subclass", "platform"],
+        ["==", "$type", "Polygon"],
+        ["none", ["<=", "layer", 0]]
+      ],
+      "paint": {"fill-color": "rgba(255, 255, 227, 1)"}
     },
     {
       "id": "sidewalk-line-steps",
