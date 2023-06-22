@@ -208,6 +208,26 @@
       }
     },
     {
+      "id": "road_cycleway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation_bicycle",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "facility", "cycleway"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(137, 191, 255, 1)",
+        "line-width": {"stops": [[13, 0], [16, 2], [17, 5], [19, 15]]}
+      }
+    },
+    {
       "id": "waterway-tunnel",
       "type": "line",
       "source": "openmaptiles",
