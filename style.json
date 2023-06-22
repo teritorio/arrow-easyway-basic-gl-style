@@ -843,6 +843,26 @@
       }
     },
     {
+      "id": "building-name",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "filter": ["all", ["in", "class", "lodging"]],
+      "layout": {
+        "text-field": "{name:latin} {name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-rotation-alignment": "map",
+        "text-size": {"base": 1.4, "stops": [[15, 8], [19, 14]]},
+        "text-max-width": 5
+      },
+      "paint": {
+        "text-color": "#000",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "airport-label",
       "type": "symbol",
       "source": "openmaptiles",
