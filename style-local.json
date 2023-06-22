@@ -291,6 +291,32 @@
       }
     },
     {
+      "id": "landuse_cemetery",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          "in",
+          "class",
+          "cemetery"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(216, 235, 179, 1)",
+        "fill-antialias": true
+      }
+    },
+    {
       "id": "road_path_path",
       "type": "line",
       "source": "openmaptiles",
@@ -2237,6 +2263,177 @@
             ]
           ]
         }
+      }
+    },
+    {
+      "id": "poi",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi_city",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        [
+          ">=",
+          [
+            "zoom"
+          ],
+          [
+            "case",
+            [
+              "==",
+              [
+                "get",
+                "class"
+              ],
+              "sport_practice"
+            ],
+            16,
+            [
+              "==",
+              [
+                "get",
+                "class"
+              ],
+              "bench"
+            ],
+            17,
+            [
+              "==",
+              [
+                "get",
+                "subclass"
+              ],
+              "waste_basket"
+            ],
+            17,
+            14
+          ]
+        ],
+        [
+          "any",
+          [
+            "in",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "literal",
+              [
+                "bench",
+                "cemetery",
+                "sport_practice",
+                "sports_centre"
+              ]
+            ]
+          ],
+          [
+            "in",
+            [
+              "get",
+              "subclass"
+            ],
+            [
+              "literal",
+              [
+                "waste_basket",
+                "toilets",
+                "drinking_water",
+                "bus_stop",
+                "park",
+                "stadium"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "icon-image": [
+          "concat",
+          [
+            "get",
+            "superclass"
+          ],
+          [
+            "case",
+            [
+              "has",
+              "class"
+            ],
+            [
+              "concat",
+              "-",
+              [
+                "get",
+                "class"
+              ]
+            ],
+            ""
+          ],
+          [
+            "case",
+            [
+              "has",
+              "subclass"
+            ],
+            [
+              "concat",
+              "-",
+              [
+                "get",
+                "subclass"
+              ]
+            ],
+            ""
+          ],
+          [
+            "case",
+            [
+              "==",
+              [
+                "get",
+                "class"
+              ],
+              "sport_practice"
+            ],
+            "•",
+            [
+              "==",
+              [
+                "get",
+                "class"
+              ],
+              "cemetery"
+            ],
+            "⬤",
+            [
+              "get",
+              "style"
+            ]
+          ]
+        ],
+        "icon-size": 1,
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "text-anchor": "top",
+        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-max-width": 9,
+        "text-offset": [
+          0,
+          1
+        ],
+        "text-padding": 2,
+        "text-size": 12,
+        "text-optional": true,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255,255,255,0.75)",
+        "text-halo-width": 1
       }
     },
     {
