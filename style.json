@@ -685,6 +685,46 @@
       }
     },
     {
+      "id": "sidewalk-line-bridge-casing",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["in", "subclass", "footway", "pedestrian", "platform", "steps"],
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"],
+        ["none", ["<=", "layer", 0]]
+      ],
+      "layout": {"line-cap": "butt", "line-join": "miter"},
+      "paint": {
+        "line-width": {"stops": [[13, 4], [16, 12], [17, 28], [19, 78]]},
+        "line-color": "rgba(168, 168, 168, 1)",
+        "line-opacity": {"stops": [[13, 0.2], [15, 1]]}
+      }
+    },
+    {
+      "id": "sidewalk-line-bridge",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["in", "subclass", "footway", "pedestrian", "platform", "steps"],
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"],
+        ["none", ["<=", "layer", 0]]
+      ],
+      "layout": {"line-cap": "butt", "line-join": "miter"},
+      "paint": {
+        "line-width": {"stops": [[13, 2], [16, 8], [17, 20], [19, 60]]},
+        "line-color": "rgba(242, 245, 248, 1)",
+        "line-opacity": {"stops": [[13, 0.2], [15, 1]]}
+      }
+    },
+    {
       "id": "bridge_minor case",
       "type": "line",
       "source": "openmaptiles",
