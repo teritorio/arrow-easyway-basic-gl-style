@@ -884,7 +884,11 @@
           ["zoom"],
           [
             "case",
-            ["==", ["get", "class"], "sport_practice"],
+            [
+              "in",
+              ["get", "class"],
+              ["literal", ["sport_practice", "sanitary", "motorway"]]
+            ],
             16,
             ["==", ["get", "class"], "bench"],
             17,
@@ -936,7 +940,9 @@
             ["==", ["get", "class"], "sport_practice"],
             "•",
             ["==", ["get", "class"], "cemetery"],
-            "⬤",
+            "◯",
+            ["==", ["get", "style"], "⬤"],
+            "◯",
             ["get", "style"]
           ]
         ],
