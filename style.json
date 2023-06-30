@@ -928,7 +928,21 @@
         "icon-image": [
           "concat",
           ["get", "superclass"],
-          ["case", ["has", "class"], ["concat", "-", ["get", "class"]], ""],
+          [
+            "case",
+            ["has", "class"],
+            [
+              "concat",
+              "-",
+              [
+                "case",
+                ["==", ["get", "class"], "sports_centre"],
+                "sport_practice",
+                ["get", "class"]
+              ]
+            ],
+            ""
+          ],
           [
             "case",
             ["has", "subclass"],
