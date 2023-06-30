@@ -373,7 +373,7 @@
       }
     },
     {
-      "id": "sidewalk-line",
+      "id": "sidewalk-line-fill",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -447,7 +447,82 @@
       }
     },
     {
-      "id": "sidewalk-poly",
+      "id": "sidewalk-line",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "footway",
+          "pedestrian",
+          "platform",
+          "steps"
+        ],
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "none",
+          [
+            "<=",
+            "layer",
+            0
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter"
+      },
+      "paint": {
+        "line-width": {
+          "stops": [
+            [
+              13,
+              2
+            ],
+            [
+              16,
+              8
+            ],
+            [
+              17,
+              20
+            ],
+            [
+              19,
+              60
+            ]
+          ]
+        },
+        "line-color": "rgba(242, 245, 248, 1)",
+        "line-opacity": {
+          "stops": [
+            [
+              13,
+              0.2
+            ],
+            [
+              15,
+              1
+            ]
+          ]
+        },
+        "line-pattern": "sidewalk"
+      }
+    },
+    {
+      "id": "sidewalk-poly-fill",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -481,6 +556,44 @@
       ],
       "paint": {
         "fill-color": "rgba(242, 245, 248, 1)"
+      }
+    },
+    {
+      "id": "sidewalk-poly",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "path"
+        ],
+        [
+          "in",
+          "subclass",
+          "footway",
+          "pedestrian",
+          "platform"
+        ],
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          "none",
+          [
+            "<=",
+            "layer",
+            0
+          ]
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(242, 245, 248, 1)",
+        "fill-pattern": "sidewalk"
       }
     },
     {
@@ -627,7 +740,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(197, 137, 255, 1)",
+        "line-color": "rgba(255, 137, 216, 1)",
         "line-width": {
           "stops": [
             [
@@ -2372,8 +2485,20 @@
               "concat",
               "-",
               [
-                "get",
-                "class"
+                "case",
+                [
+                  "==",
+                  [
+                    "get",
+                    "class"
+                  ],
+                  "sports_centre"
+                ],
+                "sport_practice",
+                [
+                  "get",
+                  "class"
+                ]
               ]
             ],
             ""
