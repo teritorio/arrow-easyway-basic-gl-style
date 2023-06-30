@@ -626,7 +626,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(137, 191, 255, 1)",
+        "line-color": "rgba(197, 137, 255, 1)",
         "line-width": {
           "stops": [
             [
@@ -2280,12 +2280,19 @@
           [
             "case",
             [
-              "==",
+              "in",
               [
                 "get",
                 "class"
               ],
-              "sport_practice"
+              [
+                "literal",
+                [
+                  "sport_practice",
+                  "sanitary",
+                  "motorway"
+                ]
+              ]
             ],
             16,
             [
@@ -2405,7 +2412,16 @@
               ],
               "cemetery"
             ],
-            "⬤",
+            "◯",
+            [
+              "==",
+              [
+                "get",
+                "style"
+              ],
+              "⬤"
+            ],
+            "◯",
             [
               "get",
               "style"
